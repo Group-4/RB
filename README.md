@@ -2,7 +2,7 @@
 
 **Endpoints**
 
-base_url: http://lit-shore-4262.herokuapp.com
+base_url: http://tiyqpic.herokuapp.com
 
 *Sign Up*
 
