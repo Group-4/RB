@@ -48,3 +48,33 @@ base_url: http://tiyqpic.herokuapp.com
   ]
 }
 ```
+
+****
+
+**Log In**
+
+Login takes a username and password and returns the access token.
+
+* Path: `POST /users/login`
+
+* Required params in body:
+  * Username
+  * Password
+
+* Responses: To be set
+
+* Example success:
+```
+{
+	"access_token": "e45142535b14ba9fa6c8269f6c19238d";
+}
+```
+
+* Example failure:
+
+```
+{
+	"msg": "User is not authenticated"
+}
+```
+
