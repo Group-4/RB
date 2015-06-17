@@ -9,9 +9,9 @@ base_url: http://lit-shore-4262.herokuapp.com
 * PATH: `POST '/users/register'`
 
 * Required Params:
+  * username: string
   * email: string
   * password: string
-  * username: string
 
 * Optional Params (not yet implemented):
 	* first name
