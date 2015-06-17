@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :posts, through: :guesses
 
   validates :password, :access_token, presence: true
-  validates :email, uniqueness: true, presence: true
+  validates :email, :username, uniqueness: true, presence: true
   validates :email, format: { with: EMAIL_REGEX,
                               message: "is not a valid email." }
 

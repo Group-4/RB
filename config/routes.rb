@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
-post 'users/registry', to: 'user#register'
+post 'users/register', to: 'users#register'
 
 end
