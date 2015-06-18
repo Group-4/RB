@@ -1,10 +1,18 @@
-##Guessing Game API
-
-**Endpoints**
+###Guessing Game API Docs
 
 base_url: http://tiyqpic.herokuapp.com
 
-*Sign Up*
+**Endpoints**
+
+* [Sign Up](####Sign Up)
+* [Log In](####Log In)
+* [All Users](####All Users)
+* [Get a User](####Get a User)
+* [Get a User's Posts](####Get a User's Posts)
+* [List All Posts](####List All Posts)
+* [Create a Post](####Create a Post)
+
+####Sign Up
 
 * PATH: `POST '/users/register'`
 
@@ -51,7 +59,7 @@ base_url: http://tiyqpic.herokuapp.com
 
 ****
 
-**Log In**
+####Log In
 
 Login takes a username and password and returns the access token.
 
@@ -77,4 +85,30 @@ Login takes a username and password and returns the access token.
 	"msg": "User is not authenticated"
 }
 ```
+****
+
+####All Users
+
+****
+
+####Get a User
+
+****
+
+####Get a Username
+
+****
+
+####Get a User's Posts
+
+****
+
+####List All Posts
+
+****
+
+####Create a Post
+
+****
+
 
