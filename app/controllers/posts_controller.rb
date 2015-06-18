@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 	end
 	
 	def index
-		@users = User.all
+		@posts = Post.all
 	end
 
 	def get 
