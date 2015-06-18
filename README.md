@@ -206,7 +206,7 @@ Status Code: 201 success, 422 unsuccessful
 
 ### Get a Post
 
-`GET /posts/:id`
+`GET /post/:id`
 
 Get data for a single post.
 
