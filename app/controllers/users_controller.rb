@@ -23,9 +23,11 @@ class UsersController < ApplicationController
   end
 
   def index
+    @users = User.all
   end
 
   def find
+    @users = User.find_by(username: params[:username])
   end
 
   def posts
