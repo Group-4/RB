@@ -2,8 +2,6 @@
 
 base_url: http://tiyqpic.herokuapp.com
 
-**Endpoints**
-
 ####Users
 * [Sign Up](#sign-up)
 * [Log In](#log-in)
