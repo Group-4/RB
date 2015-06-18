@@ -8,7 +8,9 @@ get 'users/:username/posts', to: 'users#posts'
 
 ##post controllers
 get 'posts', to: 'posts#index'
-post 'posts', to: 'post#create'
-
+post 'posts', to: 'posts#create'
 
 end
+
+# access_token
+# 75ee2fecba63c4e81914e671d9cdc4bc

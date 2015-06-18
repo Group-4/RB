@@ -14,8 +14,9 @@ class UsersController < ApplicationController
   end
 
   def login
+    passhash = Digest::SHA1.hexdigest(params[:password])
     @user = User.find_by(username: params[:username])
-    if @user && @user.password == Digest::SHA1.hexdigest(params[:password])
+    if @user && @user.password == passhash
       render "login.json.jbuilder"
     else
       render json: { msg: "User is not authenticated" }
@@ -24,10 +25,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    render "index.json.jbuilder"
   end
 
   def find
-    @users = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username])
   end
 
   def posts
