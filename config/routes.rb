@@ -10,6 +10,7 @@ get 'users/:username/posts', to: 'users#posts'
 ##post controllers
 get 'posts', to: 'posts#index'
 post 'posts', to: 'posts#create'
+get 'posts/:id', to: 'posts#get'
 
 ##guess routes
 get 'guesses', to: 'guesses#index'
