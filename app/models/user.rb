@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
-  has_many :posts
+  has_many :created_posts, class_name: Post, foreign_key: :user_id
   has_many :guesses
   has_many :posts, through: :guesses
 
@@ -25,4 +25,9 @@ class User < ActiveRecord::Base
     end
     token
   end
+
+  def count_posts
+    self.created_posts.length
+  end
+  
 end
