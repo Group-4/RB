@@ -85,7 +85,9 @@ Login takes a username and password and returns the access token.
 * Example success:
 ```
 {
-	"access_token": "e45142535b14ba9fa6c8269f6c19238d";
+  "user_id": 1,
+  "username": "taylor_d",
+  "access_token": "75ee2fecba63c4e81914e671d9cdc4bc"
 }
 ```
 
