@@ -21,5 +21,9 @@ class GuessesController < ApplicationController
       authenticate_with_token!
     end
   end
+
+  def on_post
+    @post = Post.find(params[:id])
+  end
   
 end

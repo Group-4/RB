@@ -4,10 +4,13 @@ base_url: http://tiyqpic.herokuapp.com
 
 **Endpoints**
 
+####Users
 * [Sign Up](#sign-up)
 * [Log In](#log-in)
 * [All Users](#all-users)
 * [Get a User](#get-a-user)
+
+####Posts
 * [Get a User's Posts](#get-a-users-posts)
 * [List All Posts](#list-all-posts)
 * [Create a Post](#create-a-post)

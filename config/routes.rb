@@ -13,7 +13,9 @@ post 'posts', to: 'posts#create'
 
 ##guess routes
 get 'guesses', to: 'guesses#index'
+get 'post/:id/guesses', to: 'guesses#on_post'
 post 'post/:id/guess', to: 'guesses#create'
+
 
 end
 
