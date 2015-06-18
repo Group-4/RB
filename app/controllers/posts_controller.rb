@@ -16,7 +16,8 @@ class PostsController < ApplicationController
 	end
 	
 	def index
-		@users = User.all
+		page_num = params[:page] || 1
+		@posts = Post.order(created_at: :desc).page(page_num)
 	end
 
 	def get 
