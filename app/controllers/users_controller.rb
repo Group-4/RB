@@ -22,6 +22,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+  end
+
+  def find
+  end
+
+  def posts
+  end
+
 end
 
 
