@@ -14,11 +14,11 @@ base_url: http://tiyqpic.herokuapp.com
 * [Get a User's Posts](#get-a-users-posts)
 * [List All Posts](#list-all-posts)
 
-
 ####Guesses
-* [Get All Guesses](#get-all-guesses)
 * [Create a Guess](#create-a-guess)
 * [Get Guesses on a Post](#get-guesses-on-a-post)
+* [Get All Guesses](#get-all-guesses)
+
 
 #Users
 
