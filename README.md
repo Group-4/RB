@@ -128,7 +128,7 @@ Optional Params: Pagination?
 
 ### Get a User
 
-'GET /users/:username'
+`GET /users/:username`
 
 Returns data for a specific user.
 
@@ -202,11 +202,12 @@ Returns all posts by a user.
 
 ### Create a Post
 
-'POST /posts'
+`POST /posts`
 
 Create a new post.  Must be authenticated.  
 
 Required params: image_url, answer
+
 Optional params: hint
 
 Status Code: 201 success, 422 unsuccessful
@@ -228,6 +229,7 @@ Status Code: 201 success, 422 unsuccessful
 
 * Example Failure
 
+**In Progress**
 ```json
 {
   "message": "Access Token not found."
@@ -237,7 +239,7 @@ Status Code: 201 success, 422 unsuccessful
 
 ### List All Posts
 
-'GET /posts'
+`GET /posts`
 
 List all posts by all users.  
 
@@ -304,7 +306,7 @@ Options params: pagination?
 
 ### Get a Post
 
-'GET /posts/:id'
+`GET /posts/:id`
 
 Get data for a single post.
 
