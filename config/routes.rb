@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
 
-post 'users/register', to: 'users#register'
-post 'users/login', to: 'users#login'
 
-get 'users', to: 'users#index'
-get 'users/:username', to: 'users#find'
-get 'users/:username/posts', to: 'users#posts'
-# patch 'users/:username', to: 'users#update'
+scope defaults: { format: 'json'} do
+	post 'users/register', to: 'users#register'
+	post 'users/login', to: 'users#login'
 
-##post controllers
-get 'posts', to: 'posts#index'
-post 'posts', to: 'posts#create'
-get 'posts/:id', to: 'posts#get'
+	get 'users', to: 'users#index'
+	get 'users/:username', to: 'users#find'
+	get 'users/:username/posts', to: 'users#posts'
+	# patch 'users/:username', to: 'users#update'
 
-##guess routes
-get 'guesses', to: 'guesses#index'
-get 'posts/:id/guesses', to: 'guesses#on_post'
-post 'posts/:id/guesses', to: 'guesses#create'
+	##post controllers
+	get 'posts', to: 'posts#index'
+	post 'posts', to: 'posts#create'
+	get 'posts/:id', to: 'posts#get'
+
+	##guess routes
+	get 'guesses', to: 'guesses#index'
+	get 'posts/:id/guesses', to: 'guesses#on_post'
+	post 'posts/:id/guesses', to: 'guesses#create'
+end
+
+
 
 # get 'leaderboard', to: 'users#leaderboard'
 
