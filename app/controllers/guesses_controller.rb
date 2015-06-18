@@ -12,6 +12,7 @@ class GuessesController < ApplicationController
       @guess = Guess.new(user_id: user_id, post_id: post_id, guess: params[:guess])
 
       if @guess.save
+        @guess.check_solution
         render 'create.json.jbuilder'
       else
         render json: { errors: @guess.errors.full_messages}, status: :unprocessable_entity

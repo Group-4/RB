@@ -6,16 +6,19 @@ post 'users/login', to: 'users#login'
 get 'users', to: 'users#index'
 get 'users/:username', to: 'users#find'
 get 'users/:username/posts', to: 'users#posts'
+# patch 'users/:username', to: 'users#update'
 
 ##post controllers
 get 'posts', to: 'posts#index'
 post 'posts', to: 'posts#create'
-get 'post/:id', to: 'posts#get'
+get 'posts/:id', to: 'posts#get'
 
 ##guess routes
 get 'guesses', to: 'guesses#index'
-get 'post/:id/guesses', to: 'guesses#on_post'
-post 'post/:id/guess', to: 'guesses#create'
+get 'posts/:id/guesses', to: 'guesses#on_post'
+post 'posts/:id/guess', to: 'guesses#create'
+
+# get 'leaderboard', to: 'users#leaderboard'
 
 
 end

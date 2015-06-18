@@ -34,4 +34,17 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
   end
 
+  # def scoreboard
+  #   @users = User.order(score: :desc)
+  # end
+
+  # def update
+  #   if current_user
+  #     current_score = current_user.score
+  #     current_user.update(score: current_score +100 )
+  #   else
+  #     authenticated
+  #   end
+  # end
+
 end

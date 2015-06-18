@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 		if current_user 
 			url = params[:image_url]
 			answer = params[:answer]
-			@post = Post.new(image_url: url, user_id: current_user.id, answer: params[:answer], hint: params[:hint], owner: current_user.username)
+			@post = Post.new(image_url: url, user_id: current_user.id, answer: params[:answer], hint: params[:hint], owner: current_user.username, solved:nil)
 			if @post.save 
 				render "create.json.jbuilder", status: :created
 			else 
