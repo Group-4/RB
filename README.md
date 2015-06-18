@@ -177,21 +177,21 @@ Returns all posts by a user.
       "url": "www.google.com",
       "answer": "google",
       "hint": null,
-      "solved": false
+      "solved": nil
     },
     {
       "id": 2,
       "url": "http://www.github.com",
       "answer": "github",
       "hint": null,
-      "solved": false
+      "solved": nil
     },
     {
       "id": 3,
       "url": "http://www.reddit.com",
       "answer": "reddit",
       "hint": null,
-      "solved": false
+      "solved": nil
     }
   ]
 }
@@ -283,7 +283,7 @@ Options params: pagination?
         "url": "http://www.facebook.com",
         "answer": "facebook",
         "hint": null,
-        "solved": false
+        "solved": nil
       }
     ]
   },
@@ -296,7 +296,7 @@ Options params: pagination?
         "url": "http://www.arstechnica.com",
         "answer": "ars",
         "hint": null,
-        "solved": false
+        "solved": nil
       }
     ]
   }
@@ -321,7 +321,7 @@ Get data for a single post.
   "user_id": 1,
   "answer": "reddit",
   "hint": null,
-  "solved": false,
+  "solved": nil,
   "created": "2015-06-18T12:38:40.808Z",
   "updated": "2015-06-18T12:38:40.808Z"
 }
