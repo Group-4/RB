@@ -14,6 +14,7 @@ scope defaults: { format: 'json'} do
 	get 'posts', to: 'posts#index'
 	post 'posts', to: 'posts#create'
 	get 'posts/:id', to: 'posts#get'
+	delete 'posts/:id', to: 'posts#destroy'
 
 	##guess routes
 	get 'guesses', to: 'guesses#index'
