@@ -206,7 +206,7 @@ Status Code: 201 success, 422 unsuccessful
 
 ### Get a Post
 
-`GET /post/:id`
+`GET /posts/:id`
 
 Get data for a single post.
 
@@ -341,7 +341,7 @@ List all posts by all users.
 
 ### Create a Guess
 
-`POST /post/:id/guess`
+`POST /posts/:id/guesses`
 
 Create a guess on a post.  Must be authenticated.
 
@@ -390,7 +390,7 @@ params:
 
 ### Get Guesses on a Post
 
-`GET /post/:id/guesses`
+`GET /posts/:id/guesses`
 
 List all guesses on a specific post.  
 

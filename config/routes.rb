@@ -16,7 +16,7 @@ get 'posts/:id', to: 'posts#get'
 ##guess routes
 get 'guesses', to: 'guesses#index'
 get 'posts/:id/guesses', to: 'guesses#on_post'
-post 'posts/:id/guess', to: 'guesses#create'
+post 'posts/:id/guesses', to: 'guesses#create'
 
 # get 'leaderboard', to: 'users#leaderboard'
 
