@@ -2,22 +2,38 @@
 
 base_url: http://tiyqpic.herokuapp.com
 
+Authorization occurs by passing the key `Access-Token` with the value of the token in the header of the POST request.  
+
+
+Quick find:
+
 ####Users
 * [Sign Up](#sign-up)
+`POST '/users/register'`
 * [Log In](#log-in)
+`POST /users/login`
 * [All Users](#all-users)
+`GET /users/`
 * [Get a User](#get-a-user)
+`GET /users/:username`
 
 ####Posts
 * [Create a Post](#create-a-post)
+`POST /posts`
 * [Get a Post](#get-a-post)
+`GET /posts/:id`
 * [Get a User's Posts](#get-a-users-posts)
+`GET /users/:username/posts`
 * [List All Posts](#list-all-posts)
+`GET /posts`
 
 ####Guesses
 * [Create a Guess](#create-a-guess)
+`POST /posts/:id/guesses`
 * [Get Guesses on a Post](#get-guesses-on-a-post)
+`GET /posts/:id/guesses`
 * [Get All Guesses](#get-all-guesses)
+`GET /guesses`
 
 
 #Users
