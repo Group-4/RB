@@ -18,5 +18,9 @@ class PostsController < ApplicationController
 	def index
 		@users = User.all
 	end
+
+	def get 
+		@post = Post.find(params[:id])
+	end
 	
 end
