@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user && @user.password == passhash
       render "login.json.jbuilder"
     else
-      render json: { msg: "User is not authenticated" }, status: :unauthenticated 
+      render json: { msg: "User is not authenticated" }, status: :unauthorized
     end
   end
 
