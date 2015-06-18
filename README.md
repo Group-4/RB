@@ -11,11 +11,18 @@ base_url: http://tiyqpic.herokuapp.com
 * [Get a User](#get-a-user)
 
 ####Posts
+* [Create a Post](#create-a-post)
+* [Get a Post](#get-a-post)
 * [Get a User's Posts](#get-a-users-posts)
 * [List All Posts](#list-all-posts)
-* [Create a Post](#create-a-post)
 
-##Users
+
+####Guesses
+* [Get All Guesses](#get-all-guesses)
+* [Create a Guess](#create-a-guess)
+* [Get Guesses on a Post](#get-guesses-on-a-post)
+
+#Users
 
 ### Sign Up
 
@@ -70,8 +77,8 @@ base_url: http://tiyqpic.herokuapp.com
 Login takes a username and password and returns the access token.
 
 * **Required params in body**:
-  * Username
-  * Password
+  * username: string
+  * password:
 
 * Responses: 202 success, 422 unsuccessful
 
@@ -97,9 +104,9 @@ Login takes a username and password and returns the access token.
 
 Returns an array of all users.
 
-Required Params: None
+* Required Params: None
 
-Optional Params: Pagination?  
+* Optional Params: Pagination?  
 
 * Responses: 202 success, 404 unsuccessful
 
@@ -136,9 +143,9 @@ Optional Params: Pagination?
 Returns data for a specific user.
 
 
-Required Params: None
+* Required Params: None
 
-Optional Params: None
+* Optional Params: None
 
 * Responses: 202 success, 404 unsuccessful
 
@@ -158,12 +165,74 @@ Optional Params: None
 ```
 ****
 
+#Posts
+
+### Create a Post
+
+`POST /posts`
+
+Create a new post.  Must be authenticated.  
+
+* **Required params**: image_url, answer
+
+* Optional params: hint
+
+Status Code: 201 success, 422 unsuccessful
+
+* Example Success:
+
+```json
+{
+  "id": 4,
+  "image_url": "http://www.facebook.com",
+  "user_id": 1,
+  "answer": "facebook",
+  "hint": null,
+  "solved": false,
+  "created": "2015-06-18T12:49:04.279Z",
+  "updated": "2015-06-18T12:49:04.279Z"
+}
+```
+
+* Example Failure
+
+**In Progress**
+```json
+{
+  "message": "Access Token not found."
+}
+```
+****
+
+### Get a Post
+
+`GET /posts/:id`
+
+Get data for a single post.
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+```json
+{
+  "id": 3,
+  "image_url": "http://www.reddit.com",
+  "user_id": 1,
+  "answer": "reddit",
+  "hint": null,
+  "solved": nil,
+  "created": "2015-06-18T12:38:40.808Z",
+  "updated": "2015-06-18T12:38:40.808Z"
+}
+
+```
+
 ### Get a User's Posts
 
 `GET /users/:username/posts`
 
 Returns all posts by a user.  
-
 
 * Responses: 202 success, 404 unsuccessful
 
@@ -201,54 +270,15 @@ Returns all posts by a user.
 ```
 ****
 
-##Posts
-
-### Create a Post
-
-`POST /posts`
-
-Create a new post.  Must be authenticated.  
-
-Required params: image_url, answer
-
-Optional params: hint
-
-Status Code: 201 success, 422 unsuccessful
-
-* Example Success:
-
-```json
-{
-  "id": 4,
-  "image_url": "http://www.facebook.com",
-  "user_id": 1,
-  "answer": "facebook",
-  "hint": null,
-  "solved": false,
-  "created": "2015-06-18T12:49:04.279Z",
-  "updated": "2015-06-18T12:49:04.279Z"
-}
-```
-
-* Example Failure
-
-**In Progress**
-```json
-{
-  "message": "Access Token not found."
-}
-```
-****
-
 ### List All Posts
 
 `GET /posts`
 
 List all posts by all users.  
 
-Required params: none
+* Required params: none
 
-Options params: pagination?  
+* Optional params: pagination?  
 
 * Responses: 202 success, 404 unsuccessful
 
@@ -307,27 +337,131 @@ Options params: pagination?
 ```
 ****
 
-### Get a Post
+#Guesses
 
-`GET /posts/:id`
+### Create a Guess
 
-Get data for a single post.
+`POST /post/:id/guess`
+
+Create a guess on a post.  Must be authenticated.
+
+* **Required Params**: 
+  * guess
+
+* Optional params: 
+  * none
+
+* Response: 
+  * Status Code: 201 success, 422 unsuccessful
+
+* Example Success:
+
+`post/1/guess`
+
+params:
+
+`guess: chipmunk`
+
+```json
+{
+  "id": 3,
+  "guess": "chipmunk",
+  "user_id": 1,
+  "post_id": 1
+}
+
+```
+
+* Example failure:
+
+```json
+{
+  "errors": [
+    "Guess can't be blank"
+  ]
+}
+
+{
+  "message": "Access Token not found."
+}
+```
+
+***
+
+### Get Guesses on a Post
+
+`GET /post/:id/guesses`
+
+List all guesses on a specific post.  
+
+* Required params: none
+
+* Optional params: pagination?  
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`/post/1/guesses`
+
+```json
+[
+  {
+    "guess_id": 1,
+    "guess": "rhino",
+    "user_id": 1
+  },
+  {
+    "guess_id": 2,
+    "guess": "buffalo",
+    "user_id": 1
+  },
+  {
+    "guess_id": 3,
+    "guess": "chipmunk",
+    "user_id": 1
+  }
+]
+
+```
+
+***
+
+### Get All Guesses
+
+`GET /guesses`
+
+List all guesses by all users on all posts.  
+
+* Required params: none
+
+* Optional params: pagination?  
 
 * Responses: 202 success, 404 unsuccessful
 
 * Example Success:
 
 ```json
-{
-  "id": 3,
-  "image_url": "http://www.reddit.com",
-  "user_id": 1,
-  "answer": "reddit",
-  "hint": null,
-  "solved": nil,
-  "created": "2015-06-18T12:38:40.808Z",
-  "updated": "2015-06-18T12:38:40.808Z"
-}
+[
+  {
+    "id": 1,
+    "guess": "rhino",
+    "user_id": 1,
+    "post_id": 1
+  },
+  {
+    "id": 2,
+    "guess": "buffalo",
+    "user_id": 1,
+    "post_id": 1
+  },
+  {
+    "id": 3,
+    "guess": "chipmunk",
+    "user_id": 1,
+    "post_id": 1
+  }
+]
 
 ```
 
