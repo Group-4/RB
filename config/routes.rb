@@ -11,6 +11,10 @@ get 'users/:username/posts', to: 'users#posts'
 get 'posts', to: 'posts#index'
 post 'posts', to: 'posts#create'
 
+##guess routes
+get 'guesses', to: 'guesses#index'
+post 'post/:id/guess', to: 'guesses#create'
+
 end
 
 # access_token
