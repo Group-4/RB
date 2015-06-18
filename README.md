@@ -4,15 +4,15 @@ base_url: http://tiyqpic.herokuapp.com
 
 **Endpoints**
 
-* [Sign Up](####Sign Up)
-* [Log In](####Log In)
-* [All Users](####All Users)
-* [Get a User](####Get a User)
-* [Get a User's Posts](####Get a User's Posts)
-* [List All Posts](####List All Posts)
-* [Create a Post](####Create a Post)
+[Sign Up](#head1)
+[Log In](#head2)
+[All Users](#head3)
+[Get a User](#head4)
+[Get a User's Posts](#head5)
+[List All Posts](#head6)
+[Create a Post](#head7)
 
-####Sign Up
+### <a name="head1"></a>Sign Up
 
 * PATH: `POST '/users/register'`
 
@@ -59,7 +59,7 @@ base_url: http://tiyqpic.herokuapp.com
 
 ****
 
-####Log In
+### <a name="head2"></a>Log In
 
 Login takes a username and password and returns the access token.
 
@@ -87,23 +87,23 @@ Login takes a username and password and returns the access token.
 ```
 ****
 
-####All Users
+### <a name="head3"></a>All Users
 
 ****
 
-####Get a User
+### <a name="head4"></a>Get a User
 
 ****
 
-####Get a Username
+### <a name="head5"></a>et a Username
 
 ****
 
-####Get a User's Posts
+### <a name="head6"></a>Get a User's Posts
 
 ****
 
-####List All Posts
+### <a name="head7"></a>List All Posts
 
 ****
 
