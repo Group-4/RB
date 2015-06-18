@@ -237,7 +237,7 @@ Get data for a single post.
   "user_id": 1,
   "answer": "reddit",
   "hint": null,
-  "solved": nil,
+  "solved": null,
   "created": "2015-06-18T12:38:40.808Z",
   "updated": "2015-06-18T12:38:40.808Z"
 }
@@ -265,21 +265,21 @@ Returns all posts by a user.
       "url": "www.google.com",
       "answer": "google",
       "hint": null,
-      "solved": nil
+      "solved": null
     },
     {
       "id": 2,
       "url": "http://www.github.com",
       "answer": "github",
       "hint": null,
-      "solved": nil
+      "solved": null
     },
     {
       "id": 3,
       "url": "http://www.reddit.com",
       "answer": "reddit",
       "hint": null,
-      "solved": nil
+      "solved": null
     }
   ]
 }
@@ -332,7 +332,7 @@ List all posts by all users.
         "url": "http://www.facebook.com",
         "answer": "facebook",
         "hint": null,
-        "solved": nil
+        "solved": null
       }
     ]
   },
@@ -345,7 +345,7 @@ List all posts by all users.
         "url": "http://www.arstechnica.com",
         "answer": "ars",
         "hint": null,
-        "solved": nil
+        "solved": null
       }
     ]
   }
