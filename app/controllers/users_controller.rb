@@ -5,8 +5,6 @@ class UsersController < ApplicationController
                      password: passhash)
     if @user.save
       render "register.json.jbuilder", status: :created
-      # render json: { user: @user.as_json(only: [:id, :email, :access_token]) },
-      #   status: :created
     else
       render json: { errors: @user.errors.full_messages },
         status: :unprocessable_entity
@@ -19,7 +17,7 @@ class UsersController < ApplicationController
     if @user && @user.password == passhash
       render "login.json.jbuilder"
     else
-      render json: { msg: "User is not authenticated" }
+      render json: { msg: "User is not authenticated" }, status: :unauthenticated 
     end
   end
 
@@ -33,14 +31,7 @@ class UsersController < ApplicationController
   end
 
   def posts
+    @user = User.find_by(username: params[:username])
   end
 
 end
-
-
-# {
-#   "username": "randym1",
-#   "email": "randym1@truth.com",
-#   "access_token": "2df398b06b5dac861b8699ffc5fd0027",
-#   "id": 17
-# }
