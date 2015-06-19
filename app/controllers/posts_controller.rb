@@ -4,9 +4,9 @@ class PostsController < ApplicationController
 
   def create
 	  url = params[:image_url]
-	  answer = params[:answer]
-	  answer.gsub!(/[^0-9A-Za-z]/, '').downcase!
-
+	  answer = params[:answer].downcase.gsub(' ', '')
+	  answer.gsub!(/[^0-9A-Za-z]/,'') if answer =~ /[^0-9A-Za-z]/
+	  
 	  @post = Post.new(image_url: url, user_id: current_user.id, answer: answer, hint: params[:hint], owner: current_user.username, solved:nil)
 	  
 	  if @post.save 
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   
   def index
     page_num = params[:page] || 1
-    @posts = Post.order(created_at: :desc).page(page_num)
+    @posts = Post.order(created_at: :desc).page(page_num).per(27)
   end
 
   def get 
