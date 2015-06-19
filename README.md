@@ -185,6 +185,116 @@ Returns data for a specific user.
 ```
 ****
 
+### Get a User's Solved Posts
+
+`GET /users/:username/solved`
+
+Returns all posts that a user has solved.
+
+* Required Params: None
+
+* Optional Params: None
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`users/taylor_d/solved`
+
+```json
+[
+  {
+    "id": 1,
+    "image_url": "image.jpg",
+    "user_id": 1,
+    "answer": "toast",
+    "hint": null,
+    "solved": 1,
+    "created_at": "2015-06-19T19:43:50.149Z",
+    "updated_at": "2015-06-19T19:44:59.333Z",
+    "owner": "taylor_d",
+    "solved_by": "taylor_d"
+  }
+]
+```
+### Get a User's Unsolved Posts
+
+`GET /users/:username/unsolved`
+
+Returns all posts that a user has NOT solved.
+
+* Required Params: None
+
+* Optional Params: None
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`users/taylor_d/solved`
+
+```json
+[
+  {
+    "id": 2,
+    "image_url": "bread.png",
+    "user_id": 1,
+    "answer": "sandwhich",
+    "hint": null,
+    "solved": null,
+    "created_at": "2015-06-19T19:53:42.122Z",
+    "updated_at": "2015-06-19T19:53:42.122Z",
+    "owner": "taylor_d",
+    "solved_by": null
+  },
+  {
+    "id": 3,
+    "image_url": "bun.gif",
+    "user_id": 1,
+    "answer": "hamburger",
+    "hint": null,
+    "solved": null,
+    "created_at": "2015-06-19T19:53:56.029Z",
+    "updated_at": "2015-06-19T19:53:56.029Z",
+    "owner": "taylor_d",
+    "solved_by": null
+  }
+]
+```
+****
+
+### Current User
+
+`GET /users/current_user`
+
+Returns user object for the user logged in.
+
+* Required Params: None
+
+* Optional Params: None
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`users/taylor_d/solved`
+
+```json
+{
+  "id": 1,
+  "username": "taylor_d",
+  "first": null,
+  "last": null,
+  "email": "taylor@lies.com",
+  "password": "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8",
+  "access_token": "7b828e9b5ba14eeddfcedf26e59a430d",
+  "created_at": "2015-06-19T19:42:59.178Z",
+  "updated_at": "2015-06-19T19:44:59.348Z",
+  "points": 200
+}
+```
+
+
 #Posts
 
 ### Create a Post
