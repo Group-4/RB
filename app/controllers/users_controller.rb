@@ -39,6 +39,16 @@ class UsersController < ApplicationController
     render json: current_user, status: :ok
   end
 
+  def destroy
+    user = User.find(params[:id])
+    if current_user.id == user.id
+      user.destroy
+      render json: {msg: "user deleted"}, status: :accepted
+    else
+      render json: {msg: "not authenticated to delete"}, status: :unauthorized
+    end 
+  end
+
   # def scoreboard
   #   @users = User.order(score: :desc)
   # end

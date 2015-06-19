@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 scope defaults: { format: 'json'} do
 	post 'users/register', to: 'users#register'
 	post 'users/login', to: 'users#login'
+	delete 'users/:id', to: 'users#destroy'
 
 	get 'users', to: 'users#index'
 	get 'users/current_user', to: 'users#logged_in_user'
@@ -14,7 +15,7 @@ scope defaults: { format: 'json'} do
 	get 'posts', to: 'posts#index'
 	post 'posts', to: 'posts#create'
 	get 'posts/:id', to: 'posts#get'
-	delete 'posts/:id', to: 'posts#delete'
+	delete 'posts/:id', to: 'posts#destroy'
 
 	##guess routes
 	get 'guesses', to: 'guesses#index'
