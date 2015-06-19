@@ -73,7 +73,7 @@ class UsersController < ApplicationController
   end
 
   def leaderboard
-    @users = User.order(points: :desc)
+    @users = User.order(points: :desc).page(1).per(10)
   end
  
 
