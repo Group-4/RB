@@ -24,9 +24,11 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
 
-    def destroy
-      @post = Post.find_by(id: params[:id])
-      @post.destroy
+    def delete
+      post = Post.find(params[:id])
+      post.destroy
+      render json: {msg: "post deleted"}
+
     end
     
 end
