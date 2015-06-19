@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 scope defaults: { format: 'json'} do
 	post 'users/register', to: 'users#register'
 	post 'users/login', to: 'users#login'
@@ -10,6 +9,8 @@ scope defaults: { format: 'json'} do
 	get 'users/current_user', to: 'users#logged_in_user'
 	get 'users/:username', to: 'users#find'
 	get 'users/:username/posts', to: 'users#posts'
+	get 'users/:username/solved', to: 'users#solved'
+	get 'users/:username/unsolved', to: 'users#unsolved'
 	# patch 'users/:username', to: 'users#update'
 
 	##post controllers
