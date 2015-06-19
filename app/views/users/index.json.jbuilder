@@ -6,5 +6,5 @@ json.array! @users do |user|
 	json.first user.first
 	json.last user.last
 	json.posts user.count_posts
-	json.points @user.points
+	json.points user.points
 end

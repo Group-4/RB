@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_with_token!, only: [:index, :find, :posts, :logged_in_user]
+
   def register
     passhash = Digest::SHA1.hexdigest(params[:password])
     @user = User.new(username: params[:username], email: params[:email], password: passhash)
@@ -31,6 +33,10 @@ class UsersController < ApplicationController
 
   def posts
     @user = User.find_by(username: params[:username])
+  end
+
+  def logged_in_user
+    render json: current_user, status: :ok
   end
 
   # def scoreboard
