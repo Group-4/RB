@@ -9,8 +9,8 @@ class GuessesController < ApplicationController
   def create
     post_id = params[:id]
     user_id = current_user.id
-    guess = params[:guess]
-    guess.gsub!(/[^0-9A-Za-z]/, '').downcase!
+    guess = params[:guess].downcase.gsub(' ','')
+    guess.gsub!(/[^0-9A-Za-z]/,'') if guess =~ /[^0-9A-Za-z]/
   
     @guess = Guess.new(user_id: user_id, post_id: post_id, guess: guess)
 
