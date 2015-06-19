@@ -254,7 +254,7 @@ Deletes a post submitted by a user and all associated guesses on that post.
 
 * Responses: 202 accepted, 401 unauthorized
 
-* Example Success
+* Example Success:
 
 `/posts/24`
 
