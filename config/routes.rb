@@ -8,6 +8,7 @@ scope defaults: { format: 'json'} do
 	get 'users', to: 'users#index'
 	get 'users/:username', to: 'users#find'
 	get 'users/:username/posts', to: 'users#posts'
+	get 'users/current_user', to: 'users#logged_in_user'
 	# patch 'users/:username', to: 'users#update'
 
 	##post controllers
