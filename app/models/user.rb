@@ -28,5 +28,16 @@ class User < ActiveRecord::Base
   def count_posts
     self.posts.length
   end
+
+  def get_solved
+    guesses = self.guesses
+    solved = []
+    guesses.each do |guess|
+      if guess.correct 
+        solved << guess.post
+      end
+    end
+    solved
+  end
   
 end

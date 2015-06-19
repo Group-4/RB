@@ -11,15 +11,25 @@ class GuessesController < ApplicationController
     user_id = current_user.id
     guess = params[:guess].downcase.gsub(' ','')
     guess.gsub!(/[^0-9A-Za-z]/,'') if guess =~ /[^0-9A-Za-z]/
+
+    solved_posts = current_user.get_solved
   
     @guess = Guess.new(user_id: user_id, post_id: post_id, guess: guess)
 
-    if @guess.save
-      @guess.check_solution
-      render 'create.json.jbuilder'
+    solved = solved_posts.include?(@guess.post)
+    owns = current_user.posts.all.include?(@guess.post)
+
+    if !solved && !owns
+      if @guess.save
+        @guess.check_solution
+        render 'create.json.jbuilder'
+      else
+        render json: { errors: @guess.errors.full_messages}, status: :unprocessable_entity
+      end
     else
-      render json: { errors: @guess.errors.full_messages}, status: :unprocessable_entity
+      render json: {message: "This user is not allowed to guess."}, status: :forbidden
     end
+
   end
 
   def on_post
