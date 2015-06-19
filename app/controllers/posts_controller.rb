@@ -4,7 +4,7 @@ class PostsController < ApplicationController
       if current_user 
         url = params[:image_url]
         answer = params[:answer]
-        answer.gsub!(/[^0-9A-Za-z]/, '')
+        answer.gsub!(/[^0-9A-Za-z]/, '').downcase!
 
         @post = Post.new(image_url: url, user_id: current_user.id, answer: answer, hint: params[:hint], owner: current_user.username, solved:nil)
         

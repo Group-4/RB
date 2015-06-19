@@ -9,7 +9,7 @@ class GuessesController < ApplicationController
       post_id = params[:id]
       user_id = current_user.id
       guess = params[:guess]
-      guess.gsub!(/[^0-9A-Za-z]/, '')
+      guess.gsub!(/[^0-9A-Za-z]/, '').downcase!
     
       @guess = Guess.new(user_id: user_id, post_id: post_id, guess: guess)
 
