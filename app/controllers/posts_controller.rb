@@ -25,7 +25,7 @@ class PostsController < ApplicationController
      @post = Post.find(params[:id])
   end
 
-  def delete
+  def destroy
     post = Post.find(params[:id])
     if current_user.id == post.user.id
       post.destroy
