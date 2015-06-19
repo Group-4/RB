@@ -140,7 +140,8 @@ Returns an array of all users.
     "email": "taylor@lies.com",
     "first": null,
     "last": null,
-    "posts": 1
+    "posts": 1,
+    "points": 0
   },
   {
     "id": 2,
@@ -148,7 +149,8 @@ Returns an array of all users.
     "email": "taylor1@lies.com",
     "first": null,
     "last": null,
-    "posts": 0
+    "posts": 0,
+    "points": 0
   }
 ]
 ```
@@ -283,6 +285,7 @@ Returns all posts by a user.
 ```json
 {
   "username": "taylor_d",
+  "points": 0,
   "posts": [
     {
       "id": 1,
@@ -290,20 +293,23 @@ Returns all posts by a user.
       "answer": "google",
       "hint": null,
       "solved": null
+      "solved_by": null
     },
     {
       "id": 2,
       "url": "http://www.github.com",
       "answer": "github",
       "hint": null,
-      "solved": null
+      "solved": null,
+      "solved_by": null
     },
     {
       "id": 3,
       "url": "http://www.reddit.com",
       "answer": "reddit",
       "hint": null,
-      "solved": null
+      "solved": null,
+      "solved_by": null
     }
   ]
 }
@@ -327,51 +333,52 @@ List all posts by all users.
 ```json
 [
   {
-    "id": 1,
-    "user": "taylor_d",
-    "posts": [
-      {
-        "id": 1,
-        "url": "www.google.com",
-        "answer": "google",
-        "hint": null,
-        "solved": false
-      },
-      {
-        "id": 2,
-        "url": "http://www.github.com",
-        "answer": "github",
-        "hint": null,
-        "solved": false
-      },
-      {
-        "id": 3,
-        "url": "http://www.reddit.com",
-        "answer": "reddit",
-        "hint": null,
-        "solved": false
-      },
-      {
-        "id": 4,
-        "url": "http://www.facebook.com",
-        "answer": "facebook",
-        "hint": null,
-        "solved": null
-      }
-    ]
+    "id": 27,
+    "image_url": "https://qpic.s3.amazonaws.com/myImage_456417127.png",
+    "user_id": 24,
+    "answer": "Ceiling",
+    "hint": null,
+    "solved": null,
+    "created_at": "2015-06-19T14:32:18.091Z",
+    "updated_at": "2015-06-19T14:32:18.091Z",
+    "owner": "test3",
+    "solved_by": null
   },
   {
-    "id": 2,
-    "user": "taylor2",
-    "posts": [
-      {
-        "id": 5,
-        "url": "http://www.arstechnica.com",
-        "answer": "ars",
-        "hint": null,
-        "solved": null
-      }
-    ]
+    "id": 17,
+    "image_url": "http://i.imgur.com/zauSWdg.jpg?2",
+    "user_id": 21,
+    "answer": "capitol",
+    "hint": null,
+    "solved": null,
+    "created_at": "2015-06-18T23:54:48.975Z",
+    "updated_at": "2015-06-18T23:54:48.975Z",
+    "owner": "testing1230",
+    "solved_by": null
+  },
+  {
+    "id": 16,
+    "image_url": "http://i.imgur.com/8pFKkXL.jpg",
+    "user_id": 21,
+    "answer": "plants",
+    "hint": null,
+    "solved": null,
+    "created_at": "2015-06-18T23:54:08.160Z",
+    "updated_at": "2015-06-18T23:54:08.160Z",
+    "owner": "testing1230",
+    "solved_by": null
+  },
+  {
+    "id": 15,
+    "image_url": "http://i.imgur.com/BHIDeG6.jpg",
+    "user_id": 21,
+    "answer": "stool",
+    "hint": null,
+    "solved": null,
+    "created_at": "2015-06-18T23:53:54.375Z",
+    "updated_at": "2015-06-18T23:53:54.375Z",
+    "owner": "testing1230",
+    "solved_by": null
   }
 ]
 ```
