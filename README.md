@@ -16,6 +16,12 @@ Quick find:
 `GET /users/`
 * [Get a User](#get-a-user)
 `GET /users/:username`
+* [Get a User's Solved Posts](#get-a-users-solved-posts)
+`GET /users/:username/solved`
+* [Get a User's Unsolved Posts](#get-a-users-unsolved-posts)
+`GET /users/:username/unsolved`
+* [Get Current User](#get-current-user)
+`GET /users/current_user`
 
 ####Posts
 * [Create a Post](#create-a-post)
@@ -263,7 +269,7 @@ Returns all posts that a user has NOT solved.
 ```
 ****
 
-### Current User
+### Get Current User
 
 `GET /users/current_user`
 

@@ -23,6 +23,9 @@ scope defaults: { format: 'json'} do
 	get 'guesses', to: 'guesses#index'
 	get 'posts/:id/guesses', to: 'guesses#on_post'
 	post 'posts/:id/guesses', to: 'guesses#create'
+
+	#leaderboard
+	get 'leaderboard', to: 'users#leaderboard'
 end
 
 
