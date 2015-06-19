@@ -6,8 +6,13 @@ class Guess < ActiveRecord::Base
 
 	def check_solution
 		if self.guess == self.post.answer
-			self.post.update(solved: self.user.id)
-
+			if self.post.solved
+				self.user.update(points: self.user.points + 50)
+			else 
+				self.post.update(solved: self.user.id)
+				self.post.update(solved_by: self.user.username)
+				self.user.update(points: self.user.points + 200)
+			end
 		end
 	end
 
