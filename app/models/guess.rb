@@ -7,6 +7,7 @@ class Guess < ActiveRecord::Base
 	def check_solution
 		if self.guess == self.post.answer
 			self.post.update(solved: self.user.id)
+
 		end
 	end
 
