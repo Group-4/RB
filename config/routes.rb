@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 scope defaults: { format: 'json'} do
 	post 'users/register', to: 'users#register'
 	post 'users/login', to: 'users#login'
