@@ -252,7 +252,7 @@ Get data for a single post.
 
 Deletes a post submitted by a user and all associated guesses on that post.
 
-note: A user can only delete a post that they own.
+**note:** *A user can only delete a post that they own.*
 
 * Responses: 202 accepted, 401 unauthorized
 
