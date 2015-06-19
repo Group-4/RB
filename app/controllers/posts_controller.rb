@@ -26,8 +26,12 @@ class PostsController < ApplicationController
 
     def delete
       post = Post.find(params[:id])
-      post.destroy
-      render json: {msg: "post deleted"}
+      if current_user.id == post.user.id
+	      post.destroy
+	      render json: {msg: "post deleted"}
+	    else
+	    	render json: {msg: "not authenticated to delete"}, status: :unauthorized
+	    end 
     end
     
 end
