@@ -72,9 +72,10 @@ class UsersController < ApplicationController
     solved
   end
 
-  # def scoreboard
-  #   @users = User.order(score: :desc)
-  # end
+  def leaderboard
+    @users = User.order(points: :desc)
+  end
+ 
 
   # def update
   #   if current_user
