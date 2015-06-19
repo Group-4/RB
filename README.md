@@ -263,6 +263,38 @@ Returns all posts that a user has NOT solved.
 ```
 ****
 
+### Current User
+
+`GET /users/current_user`
+
+Returns user object for the user logged in.
+
+* Required Params: None
+
+* Optional Params: None
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`users/taylor_d/solved`
+
+```json
+{
+  "id": 1,
+  "username": "taylor_d",
+  "first": null,
+  "last": null,
+  "email": "taylor@lies.com",
+  "password": "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8",
+  "access_token": "7b828e9b5ba14eeddfcedf26e59a430d",
+  "created_at": "2015-06-19T19:42:59.178Z",
+  "updated_at": "2015-06-19T19:44:59.348Z",
+  "points": 200
+}
+```
+
+
 #Posts
 
 ### Create a Post
