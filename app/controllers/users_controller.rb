@@ -49,6 +49,29 @@ class UsersController < ApplicationController
     end 
   end
 
+  def solved
+    user = User.find_by(username: params[:username])
+    @solved = get_solved(user)
+    render json: @solved, status: :ok
+  end
+
+  def unsolved
+    user = User.find_by(username: params[:username])
+    @unsolved = Post.all - get_solved(user)
+    render json: @unsolved, status: :ok
+  end
+
+  def get_solved(user)
+    guesses = user.guesses
+    solved = []
+    guesses.each do |guess|
+      if guess.correct 
+        solved << guess.post
+      end
+    end
+    solved
+  end
+
   # def scoreboard
   #   @users = User.order(score: :desc)
   # end
