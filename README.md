@@ -26,6 +26,8 @@ Quick find:
 `GET /users/:username/posts`
 * [List All Posts](#list-all-posts)
 `GET /posts`
+* [Delete a Post](#delete-a-post)
+`DELETE /posts/:id`
 
 ####Guesses
 * [Create a Guess](#create-a-guess)
@@ -243,6 +245,26 @@ Get data for a single post.
 }
 
 ```
+
+### Delete a Post
+
+`DELETE /posts/:id`
+
+Deletes a post submitted by a user and all associated guesses on that post.
+
+* Responses: 202 accepted, 401 unauthorized
+
+* Example Success
+
+`/posts/24`
+
+```json
+{
+  "msg": "post deleted"
+}
+```
+****
+
 
 ### Get a User's Posts
 
