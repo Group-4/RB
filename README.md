@@ -1,4 +1,4 @@
-###Guessing Game API Docs
+###QPic API Docs
 
 base_url: http://tiyqpic.herokuapp.com
 
