@@ -30,7 +30,13 @@ class User < ActiveRecord::Base
   end
 
   def get_solved
-    self.guesses.map {|guess| guess.post if guess.correct}.compact
+    solved_guesses = self.guesses.where(correct:true).sort_by {|guess| guess.created_at}.reverse!
+    solved_posts = solved_guesses.map {|guess| guess.post}
+  end
+
+  def get_unsolved
+    unsolved = Post.all - self.get_solved
+    unsolved.sort_by {|post| post.created_at}.reverse!
   end
   
 end

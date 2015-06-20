@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
   def unsolved
     user = User.find_by(username: params[:username])
-    @unsolved = Post.all - user.get_solved
+    @unsolved = user.get_unsolved
     render json: @unsolved, status: :ok
   end
 
