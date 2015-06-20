@@ -30,14 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def get_solved
-    guesses = self.guesses
-    solved = []
-    guesses.each do |guess|
-      if guess.correct 
-        solved << guess.post
-      end
-    end
-    solved
+    self.guesses.map {|guess| guess.post if guess.correct}.compact
   end
   
 end

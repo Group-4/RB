@@ -65,15 +65,5 @@ class UsersController < ApplicationController
     @users = User.order(points: :desc).page(1).per(10)
     render status: :created
   end
- 
-
-  # def update
-  #   if current_user
-  #     current_score = current_user.score
-  #     current_user.update(score: current_score +100 )
-  #   else
-  #     authenticated
-  #   end
-  # end
 
 end
