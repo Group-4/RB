@@ -637,7 +637,7 @@ List all guesses by all users on all posts.
 
 #Leaderboard
 
-### Get the Leaderboard
+### Get Leaderboard
 
 `GET /leaderboard`  
 
