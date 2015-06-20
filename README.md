@@ -8,28 +8,30 @@ Authorization occurs by passing the key `Access-Token` with the value of the tok
 Quick find:
 
 ####Users
-* [Sign Up](#sign-up)
+* [User Registration](#user-registration)
 `POST '/users/register'`
 * [Log In](#log-in)
 `POST /users/login`
+* [Delete a User](#delete)
+`DELETE /users/:id`
 * [All Users](#all-users)
 `GET /users/`
+* [Get Current User](#get-current-user)
+`GET /users/current_user`
 * [Get a User](#get-a-user)
 `GET /users/:username`
+* [Get a User's Posts](#get-a-users-posts)
+`GET /users/:username/posts`
 * [Get a User's Solved Posts](#get-a-users-solved-posts)
 `GET /users/:username/solved`
 * [Get a User's Unsolved Posts](#get-a-users-unsolved-posts)
 `GET /users/:username/unsolved`
-* [Get Current User](#get-current-user)
-`GET /users/current_user`
 
 ####Posts
 * [Create a Post](#create-a-post)
 `POST /posts`
 * [Get a Post](#get-a-post)
 `GET /posts/:id`
-* [Get a User's Posts](#get-a-users-posts)
-`GET /users/:username/posts`
 * [List All Posts](#list-all-posts)
 `GET /posts`
 * [Delete a Post](#delete-a-post)
@@ -43,10 +45,14 @@ Quick find:
 * [Get All Guesses](#get-all-guesses)
 `GET /guesses`
 
+####Leaderboard
+* [Get Leaderboard](#get-leaderboard)
+`GET /leaderboard`
+
 
 #Users
 
-### Sign Up
+### User Registration
 
 `POST '/users/register'`
 
@@ -187,6 +193,52 @@ Returns data for a specific user.
   "first": null,
   "last": null,
   "posts": 1
+}
+```
+****
+
+### Get a User's Posts
+
+`GET /users/:username/posts`
+
+Returns all posts by a user.  
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`/users/taylor_d/posts`
+
+```json
+{
+  "username": "taylor_d",
+  "points": 0,
+  "posts": [
+    {
+      "id": 1,
+      "url": "www.google.com",
+      "answer": "google",
+      "hint": null,
+      "solved": null,
+      "solved_by": null
+    },
+    {
+      "id": 2,
+      "url": "http://www.github.com",
+      "answer": "github",
+      "hint": null,
+      "solved": null,
+      "solved_by": null
+    },
+    {
+      "id": 3,
+      "url": "http://www.reddit.com",
+      "answer": "reddit",
+      "hint": null,
+      "solved": null,
+      "solved_by": null
+    }
+  ]
 }
 ```
 ****
@@ -385,53 +437,6 @@ Deletes a post submitted by a user and all associated guesses on that post.
 ```
 ****
 
-
-### Get a User's Posts
-
-`GET /users/:username/posts`
-
-Returns all posts by a user.  
-
-* Responses: 202 success, 404 unsuccessful
-
-* Example Success:
-
-`/users/taylor_d/posts`
-
-```json
-{
-  "username": "taylor_d",
-  "points": 0,
-  "posts": [
-    {
-      "id": 1,
-      "url": "www.google.com",
-      "answer": "google",
-      "hint": null,
-      "solved": null
-      "solved_by": null
-    },
-    {
-      "id": 2,
-      "url": "http://www.github.com",
-      "answer": "github",
-      "hint": null,
-      "solved": null,
-      "solved_by": null
-    },
-    {
-      "id": 3,
-      "url": "http://www.reddit.com",
-      "answer": "reddit",
-      "hint": null,
-      "solved": null,
-      "solved_by": null
-    }
-  ]
-}
-```
-****
-
 ### List All Posts
 
 `GET /posts`
@@ -623,6 +628,76 @@ List all guesses by all users on all posts.
     "guess": "chipmunk",
     "user_id": 1,
     "post_id": 1
+  }
+]
+
+```
+
+***
+
+#Leaderboard
+
+### Get the Leaderboard
+
+`GET /leaderboard`  
+
+* Required params: none  
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+```json
+[
+  {
+    "id": 14,
+    "username": "nick",
+    "points": 3300
+  },
+  {
+    "id": 31,
+    "username": "krose422",
+    "points": 1200
+  },
+  {
+    "id": 32,
+    "username": "monica",
+    "points": 800
+  },
+  {
+    "id": 15,
+    "username": "testing1128",
+    "points": 650
+  },
+  {
+    "id": 33,
+    "username": "evelyn",
+    "points": 250
+  },
+  {
+    "id": 29,
+    "username": "jamiegmoney",
+    "points": 200
+  },
+  {
+    "id": 7,
+    "username": "timtiy",
+    "points": 0
+  },
+  {
+    "id": 6,
+    "username": "postmantest",
+    "points": 0
+  },
+  {
+    "id": 3,
+    "username": "jamieg",
+    "points": 0
+  },
+  {
+    "id": 5,
+    "username": "test",
+    "points": 0
   }
 ]
 
