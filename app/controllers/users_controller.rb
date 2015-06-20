@@ -63,6 +63,7 @@ class UsersController < ApplicationController
 
   def leaderboard
     @users = User.order(points: :desc).page(1).per(10)
+    render json: {msg: "leaderboard generated"}, status: :created
   end
  
 
