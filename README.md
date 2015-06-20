@@ -643,9 +643,15 @@ List all guesses by all users on all posts.
 
 * Required params: none  
 
-* Responses: 202 success, 404 unsuccessful
+* Responses: 201 created, 404 unsuccessful
 
 * Example Success:
+
+```json
+{
+  "msg": "leaderboard generated"
+}
+```
 
 ```json
 [
