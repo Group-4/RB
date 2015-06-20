@@ -648,12 +648,6 @@ List all guesses by all users on all posts.
 * Example Success:
 
 ```json
-{
-  "msg": "leaderboard generated"
-}
-```
-
-```json
 [
   {
     "id": 14,
