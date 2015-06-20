@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  PER_PAGE = 28
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   has_many :guesses, dependent: :destroy
@@ -29,14 +31,19 @@ class User < ActiveRecord::Base
     self.posts.length
   end
 
-  def get_solved
-    solved_guesses = self.guesses.where(correct:true).sort_by {|guess| guess.created_at}.reverse!
-    solved_posts = solved_guesses.map {|guess| guess.post}
+  def get_solved(page)
+    solved = self.guesses.where(correct:true).page(page).per(PER_PAGE)
+    sorted_guesses = solved.sort_by {|guess| guess.created_at}.reverse!
+    solved_posts = sorted_guesses.map {|guess| guess.post}
   end
 
-  def get_unsolved
-    unsolved = Post.all - self.get_solved
-    unsolved.sort_by {|post| post.created_at}.reverse!
+  def get_unsolved(page,top=nil)
+    unsolved = Post.page(page).per(PER_PAGE) - self.get_solved(page)
+    if top
+      unsolved.sort_by {|post| -post.attempts}
+    else
+      unsolved.sort_by {|post| post.created_at}.reverse!
+    end
   end
   
 end

@@ -50,14 +50,16 @@ class UsersController < ApplicationController
   end
 
   def solved
+    page = params[:page] || 1
     user = User.find_by(username: params[:username])
-    @solved = user.get_solved
+    @solved = user.get_solved(page)
     render json: @solved, status: :ok
   end
 
   def unsolved
+    page = params[:page] || 1
     user = User.find_by(username: params[:username])
-    @unsolved = user.get_unsolved
+    @unsolved = user.get_unsolved(page)
     render json: @unsolved, status: :ok
   end
 
