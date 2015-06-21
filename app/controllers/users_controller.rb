@@ -80,7 +80,6 @@ class UsersController < ApplicationController
     post = Post.find(params[:post_id])
     if post && user
       guesses = post.guesses.where(user_id: user.id)
-      binding.pry
       if guesses
         render json: guesses, status: :ok
       else
