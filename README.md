@@ -2,7 +2,7 @@
 
 base_url: http://tiyqpic.herokuapp.com
 
-Authorization occurs by passing the key `Access-Token` with the value of the token in the header of the POST request.  
+Authorization occurs by passing the key `Access-Token` with the value of the token in the header of the POST request.  All requests GET/POST/DELETE must be authenticated with a token.
 
 
 Quick find:
@@ -16,8 +16,6 @@ Quick find:
 `DELETE /users/:id`
 * [All Users](#all-users)
 `GET /users/`
-* [Get Current User](#get-current-user)
-`GET /users/current_user`
 * [Get a User](#get-a-user)
 `GET /users/:username`
 * [Get a User's Posts](#get-a-users-posts)
@@ -26,6 +24,12 @@ Quick find:
 `GET /users/:username/solved`
 * [Get a User's Unsolved Posts](#get-a-users-unsolved-posts)
 `GET /users/:username/unsolved`
+* [Get a User's Guesses](#get-a-users-guesses)
+'GET /users/:username/guesses'
+* [Get a User's Guesses on a Post](#get-a-users-guesses-on-a-post)
+`GET /users/:username/:post_id/guesses`
+* [Get Current User](#get-current-user)
+`GET /users/current_user`
 
 ####Posts
 * [Create a Post](#create-a-post)
@@ -251,7 +255,9 @@ Returns all posts that a user has solved.
 
 * Required Params: None
 
-* Optional Params: None
+* Optional Params: 
+  * `?page=#page`
+  * pagination - 27 per page
 
 * Responses: 202 success, 404 unsuccessful
 
@@ -283,7 +289,9 @@ Returns all posts that a user has NOT solved.
 
 * Required Params: None
 
-* Optional Params: None
+* Optional Params: 
+  * `?sort=difficult`: sorts the unsolved posts by most attempts
+  * `?page=#page`: 27 per page
 
 * Responses: 202 success, 404 unsuccessful
 
@@ -319,6 +327,176 @@ Returns all posts that a user has NOT solved.
   }
 ]
 ```
+
+****
+
+### Get a User's Guesses
+
+'GET /users/:username/guesses'
+
+Returns user object for the user logged in.
+
+* Required Params: None
+
+* Optional Params: None
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`users/taylor_d/guesses`
+
+```json
+[
+  {
+    "id": 2,
+    "user_id": 2,
+    "post_id": 1,
+    "guess": "try1",
+    "created_at": "2015-06-21T00:46:58.074Z",
+    "updated_at": "2015-06-21T00:46:58.074Z",
+    "correct": false
+  },
+  {
+    "id": 3,
+    "user_id": 2,
+    "post_id": 1,
+    "guess": "try2",
+    "created_at": "2015-06-21T00:47:00.364Z",
+    "updated_at": "2015-06-21T00:47:00.364Z",
+    "correct": false
+  },
+  {
+    "id": 4,
+    "user_id": 2,
+    "post_id": 1,
+    "guess": "try3",
+    "created_at": "2015-06-21T00:47:02.491Z",
+    "updated_at": "2015-06-21T00:47:02.491Z",
+    "correct": false
+  },
+  {
+    "id": 5,
+    "user_id": 2,
+    "post_id": 1,
+    "guess": "test",
+    "created_at": "2015-06-21T00:47:06.955Z",
+    "updated_at": "2015-06-21T00:47:06.966Z",
+    "correct": true
+  },
+  {
+    "id": 6,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:17.421Z",
+    "updated_at": "2015-06-21T01:09:17.421Z",
+    "correct": false
+  },
+  {
+    "id": 7,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:18.493Z",
+    "updated_at": "2015-06-21T01:09:18.493Z",
+    "correct": false
+  },
+  {
+    "id": 8,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:19.258Z",
+    "updated_at": "2015-06-21T01:09:19.258Z",
+    "correct": false
+  }
+]
+
+```
+
+### Get a User's Guesses on a Post
+
+`GET /users/:username/:post_id/guesses`
+
+* Required Params: None
+
+* Optional Params: None
+
+* Responses: 202 success, 404 unsuccessful
+
+* Example Success:
+
+`users/taylor_d/2/guesses`
+
+```json
+[
+  {
+    "id": 6,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:17.421Z",
+    "updated_at": "2015-06-21T01:09:17.421Z",
+    "correct": false
+  },
+  {
+    "id": 7,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:18.493Z",
+    "updated_at": "2015-06-21T01:09:18.493Z",
+    "correct": false
+  },
+  {
+    "id": 8,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:19.258Z",
+    "updated_at": "2015-06-21T01:09:19.258Z",
+    "correct": false
+  },
+  {
+    "id": 9,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:19.957Z",
+    "updated_at": "2015-06-21T01:09:19.957Z",
+    "correct": false
+  },
+  {
+    "id": 10,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:20.658Z",
+    "updated_at": "2015-06-21T01:09:20.658Z",
+    "correct": false
+  },
+  {
+    "id": 11,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:21.288Z",
+    "updated_at": "2015-06-21T01:09:21.288Z",
+    "correct": false
+  },
+  {
+    "id": 12,
+    "user_id": 2,
+    "post_id": 2,
+    "guess": "isthiscorrect",
+    "created_at": "2015-06-21T01:09:21.942Z",
+    "updated_at": "2015-06-21T01:09:21.942Z",
+    "correct": false
+  }
+]
+```
+
 ****
 
 ### Get Current User
@@ -359,7 +537,7 @@ Returns user object for the user logged in.
 
 `POST /posts`
 
-Create a new post.  Must be authenticated.  
+Create a new post. 
 
 * **Required params**: image_url, answer
 
@@ -511,7 +689,7 @@ List all posts by all users.
 
 `POST /posts/:id/guesses`
 
-Create a guess on a post.  Must be authenticated.
+Create a guess on a post.  
 
 * **Required Params**: 
   * guess
