@@ -1,1 +1,1 @@
-json.array! @users, :id, :username, :points
+json.array! @users, :id, :username, :points, :correct_count, :win_percent

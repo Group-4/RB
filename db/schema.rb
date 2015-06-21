@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620232152) do
+ActiveRecord::Schema.define(version: 20150621211607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,13 @@ ActiveRecord::Schema.define(version: 20150620232152) do
     t.string   "email"
     t.string   "password"
     t.string   "access_token"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "points",       default: 0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "points",          default: 0
+    t.integer  "guess_count",     default: 0
+    t.integer  "incorrect_count", default: 0
+    t.integer  "correct_count",   default: 0
+    t.float    "win_percent",     default: 0.0
   end
 
 end
