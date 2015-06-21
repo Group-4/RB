@@ -12,7 +12,7 @@ def check_solution
 			win_percent = (self.user.correct_count.to_f/self.user.guess_count)*100
 			self.user.update(win_percent: win_percent)
 			if self.post.solved
-				self.user.update(points: self.user.points + 50)
+				self.user.update(points: self.user.points + 75)
 			else 
 				self.post.update(solved: self.user.id)
 				self.post.update(solved_by: self.user.username)
