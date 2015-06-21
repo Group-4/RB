@@ -23,7 +23,10 @@ class PostsController < ApplicationController
   end
 
   def get 
-     @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    unless @post
+     	render json: {msg: "No post found"}
+    end
   end
 
   def destroy
