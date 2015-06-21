@@ -21,7 +21,6 @@ def check_solution
 		else
 			self.post.update(attempts: self.post.attempts + 1)
 			self.user.update(incorrect_count: self.user.incorrect_count + 1)
-			self.user.update(correct_count: self.user.correct_count + 1 )
 			win_percent = (self.user.correct_count.to_f/self.user.guess_count)*100
 		end
 	end
