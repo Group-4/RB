@@ -8,3 +8,4 @@ json.solved @post.solved
 json.solved_by @post.solved_by
 json.created @post.created_at
 json.updated @post.updated_at
+json.attempts @post.attempts

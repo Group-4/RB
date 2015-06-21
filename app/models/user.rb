@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-
-  PER_PAGE = 28
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   has_many :guesses, dependent: :destroy
@@ -10,7 +8,6 @@ class User < ActiveRecord::Base
   validates :email, :username, uniqueness: true, presence: true
   validates :email, format: { with: EMAIL_REGEX,
                               message: "is not a valid email." }
-
   before_validation :ensure_access_token
 
   def ensure_access_token
@@ -32,17 +29,21 @@ class User < ActiveRecord::Base
   end
 
   def get_solved(page)
-    solved = self.guesses.where(correct:true).page(page).per(PER_PAGE)
-    sorted_guesses = solved.sort_by {|guess| guess.created_at}.reverse!
-    solved_posts = sorted_guesses.map {|guess| guess.post}
+    solved = self.guesses.where(correct:true)
+    solved = solved.sort_by {|guess| guess.created_at}.reverse!
+    solved_posts = solved.map {|guess| guess.post}
+    Kaminari.paginate_array(solved_posts).page(page).per(27)
   end
 
   def get_unsolved(page,top=nil)
-    unsolved = Post.page(page).per(PER_PAGE) - self.get_solved(page)
-    if top
-      unsolved.sort_by {|post| -post.attempts}
+    solved = self.guesses.where(correct:true).map {|guess| guess.post} 
+    unsolved = Post.all - solved
+    if top == "difficult"
+      unsolved.sort_by! {|post| [post.attempts, post.created_at]}.reverse!
+      Kaminari.paginate_array(unsolved).page(page).per(27)
     else
-      unsolved.sort_by {|post| post.created_at}.reverse!
+      unsolved.sort_by! {|post| post.created_at}.reverse!
+      Kaminari.paginate_array(unsolved).page(page).per(27)
     end
   end
   
