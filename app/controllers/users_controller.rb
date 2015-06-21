@@ -29,10 +29,16 @@ class UsersController < ApplicationController
 
   def find
     @user = User.find_by(username: params[:username])
+    unless @user
+      render json: {msg: "No user found"}
+    end
   end
 
   def posts
     @user = User.find_by(username: params[:username])
+    unless @user
+      render json: {msg: "No user found"}
+    end
   end
 
   def logged_in_user
@@ -52,16 +58,24 @@ class UsersController < ApplicationController
   def solved
     page = params[:page] || 1
     user = User.find_by(username: params[:username])
-    @solved = user.get_solved(page)
-    render json: @solved, status: :ok
+    if user 
+      @solved = user.get_solved(page)
+      render json: @solved, status: :ok
+    else 
+      render json: {msg: "No user found"}
+    end
   end
 
   def unsolved
     page = params[:page] || 1
     top = params[:sort]
     user = User.find_by(username: params[:username])
-    @unsolved = user.get_unsolved(page, top)
-    render json: @unsolved, status: :ok
+    if user 
+      @unsolved = user.get_unsolved(page, top)
+      render json: @unsolved, status: :ok
+    else
+      render json: {msg: "No user found"}
+    end
   end
 
   def leaderboard
@@ -71,8 +85,12 @@ class UsersController < ApplicationController
 
   def guesses
     user = User.find_by(username: params[:username])
-    @guesses = user.guesses
-    render json: @guesses, status: :ok
+    if user 
+      @guesses = user.guesses
+      render json: @guesses, status: :ok
+    else
+      render json: {msg: "No user found"}
+    end
   end
 
   def post_guesses
