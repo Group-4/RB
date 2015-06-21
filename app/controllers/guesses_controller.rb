@@ -12,7 +12,7 @@ class GuessesController < ApplicationController
     guess = params[:guess].downcase.gsub(' ','')
     guess.gsub!(/[^0-9A-Za-z]/,'') if guess =~ /[^0-9A-Za-z]/
 
-    solved_posts = current_user.get_solved
+    solved_posts = current_user.guesses.where(correct:true).map {|guess| guess.post}  
   
     @guess = Guess.new(user_id: user_id, post_id: post_id, guess: guess)
 

@@ -14,6 +14,8 @@ class Guess < ActiveRecord::Base
 				self.post.update(solved_by: self.user.username)
 				self.user.update(points: self.user.points + 200)
 			end
+		else
+			self.post.update(attempts: self.post.attempts + 1)
 		end
 	end
 
