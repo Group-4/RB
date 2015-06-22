@@ -10,7 +10,7 @@ def check_solution
 			self.update(correct: true)
 			self.post.update(times_solved: self.post.times_solved + 1 )
 			self.user.update(correct_count: self.user.correct_count + 1 )
-			win_percent = (self.user.correct_count.to_f/self.user.guess_count)*100
+			win_percent = ((self.user.correct_count.to_f/self.user.guess_count)*100).round(2)
 			self.user.update(win_percent: win_percent)
 			case self.post.times_solved
 			when 1
@@ -27,7 +27,8 @@ def check_solution
 		else
 			self.post.update(attempts: self.post.attempts + 1)
 			self.user.update(incorrect_count: self.user.incorrect_count + 1)
-			win_percent = (self.user.correct_count.to_f/self.user.guess_count)*100
+			win_percent = ((self.user.correct_count.to_f/self.user.guess_count)*100).round(2)
+			self.user.update(win_percent: win_percent)
 		end
 	end
 
