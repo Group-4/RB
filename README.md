@@ -40,7 +40,7 @@ Quick find:
 `GET /posts`
 * [Delete a Post](#delete-a-post)
 `DELETE /posts/:id`
-* [Get Winners](#get-users-who-solved-a-post)
+* [Get Winners](#get-winners)
 `GET /posts/:id/winners`
 
 ####Guesses
