@@ -25,7 +25,7 @@ Quick find:
 * [Get a User's Unsolved Posts](#get-a-users-unsolved-posts)
 `GET /users/:username/unsolved`
 * [Get a User's Guesses](#get-a-users-guesses)
-'GET /users/:username/guesses'
+`GET /users/:username/guesses`
 * [Get a User's Guesses on a Post](#get-a-users-guesses-on-a-post)
 `GET /users/:username/:post_id/guesses`
 * [Get Current User](#get-current-user)
@@ -421,7 +421,7 @@ Returns all posts that a user has NOT solved.
 
 ### Get a User's Guesses
 
-'GET /users/:username/guesses'
+`GET /users/:username/guesses`
 
 Returns user object for the user logged in.
 
