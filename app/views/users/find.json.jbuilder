@@ -4,3 +4,7 @@ json.email @user.email
 json.first @user.first
 json.last @user.last
 json.posts @user.count_posts
+json.guess_count @user.guess_count
+json.incorrect_count @user.incorrect_count
+json.correct_count @user.correct_count
+json.win_percent @user.win_percent

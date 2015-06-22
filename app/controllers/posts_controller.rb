@@ -38,5 +38,11 @@ class PostsController < ApplicationController
     	render json: {msg: "not authenticated to delete"}, status: :unauthorized
     end 
   end
-    
+
+  def winners
+    post = Post.find(params[:id])
+    @winners = post.guesses.where(correct:true).map {|guess| guess.user}
+    render json: @winners, status: :ok
+  end
+
 end

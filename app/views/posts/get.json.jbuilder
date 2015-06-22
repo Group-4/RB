@@ -6,3 +6,4 @@ json.hint @post.hint
 json.solved @post.solved
 json.solved_by @post.solved_by
 json.attempts @post.attempts
+json.times_solved @post.times_solved
